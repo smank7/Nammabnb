@@ -1,9 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/OuSBNpwM)
-# Airbnb Clone Project
+# Nammabnb Clone Project
 
-Airbnb Clone Project README
+Nammabnb Clone Project README
 Project Overview
-The Airbnb Clone project is designed to replicate key functionalities of the popular accommodation booking platform, Airbnb. This project incorporates HTML, CSS, TypeScript for the front-end, and MongoDB for backend data storage.
+The Nammabnb Clone project is designed to replicate key functionalities of the popular accommodation booking platform, Nammabnb. This project incorporates HTML, CSS, TypeScript for the front-end, and MongoDB for backend data storage.
 
 # Features
 1. Login Page
