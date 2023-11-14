@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: Airbnb API
+  description: API for managing Airbnb resources and bookings.
+  version: 1.0.0
+paths:
+  /users:
+    post:
+      summary: Create a new user
+      description: Endpoint to create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: Email address of the user
+                password:
+                  type: string
+                  format: password
+                  description: User's password
+      responses:
+        '200':
+          description: User created successfully
+        '400':
+          description: Bad request
+  /propertyoffering:
+    post:
+      summary: Add a new room
+      description: Endpoint to add a new room to Airbnb inventory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roomNumber:
+                  type: string
+                  description: The room number or identifier
+                type:
+                  type: string
+                  description: The type of room (e.g., single, double)
+                price:
+                  type: number
+                  description: The price of the room per night
+      responses:
+        '200':
+          description: Room added successfully
+        '400':
+          description: Bad request
+  /bookingreservation:
+    post:
+      summary: Book a room
+      description: Endpoint to book a room for a specified duration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roomNumber:
+                  type: string
+                  description: The room number to book
+                bookingId:
+                  type: string
+                  description: Unique ID for the booking
+                durationOfStay:
+                  type: integer
+                  description: Duration of the stay in nights
+      responses:
+        '200':
+          description: Room booked successfully
+        '400':
+          description: Bad request
+  /wishlist:
+    post:
+      summary: Add to user's wishlist
+      description: Endpoint to add a room to a user's wishlist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookingId:
+                  type: string
+                  description: The booking ID to add to the wishlist
+      responses:
+        '200':
+          description: Added to wishlist successfully
+        '400':
+          description: Bad request
