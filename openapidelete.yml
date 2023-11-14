@@ -1,0 +1,165 @@
+openapi: 3.1.0
+info:
+  title: Airbnb
+  description: REST API to delete the property and reservation.
+  version: 'v1.0'
+servers:
+  - url: http://localhost:8080
+paths:
+  /propertyofferings:
+    delete:
+      operationId: delete-property
+      description: Delete the property from listing
+      parameters:
+        - name: propertyId
+          in: query
+          required: true
+          example: 21
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The property is deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/propertyoffering"
+        "401":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /bookingreservation:
+    delete:
+      operationId: delete-booking
+      description: Delete the reservation
+      parameters:
+        - name: bookingId
+          in: query
+          required: true
+          example: "23" 
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The reservation is canceled successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/booking"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errorbooking"
+  /user:
+    delete: 
+      operationId: delete-user
+      description: Delete the reservation
+      parameters: 
+        - name: userId
+          in: query
+          required: true
+          example: "abc@gmail.com"
+          schema: 
+            type: string 
+      responses: 
+        "200":
+          description: The user is deleted successfully
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/user"
+        "400":
+          description: Worng emailId
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/Error"
+  /wishlist:
+    delete: 
+      operationId: delete-property-wishlist
+      description: remove property from wishlist
+      parameters: 
+        - name: WishlistId
+          in: query
+          required: true
+          example: "1"
+          schema: 
+            type: string
+      responses: 
+        "200":
+          description: The property is deleted successfully
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/wishlist"
+        "400":
+          description: There is no wishlist
+          content: 
+            application/json: 
+              schema: 
+                $ref: "#/components/schemas/Errorwishlist"
+
+components:
+  schemas:
+    propertyoffering:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 45
+        message:
+          type: string
+          example: "Property 45 is successfully deleted" 
+          
+    booking:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "The booking has been canceled"  
+    user:
+      type: object
+      properties: 
+        message:
+          type: string
+          examples: 
+            - The user is deleted from the system
+    wishlist:
+      type: object
+      properties: 
+        message:
+          type: string
+          examples: 
+            - The wishlist is deleted
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Give a valid input
+          example: "Please enter the valid propertyID"  
+        code:
+          type: string
+          example: "Bad request"
+    Errorbooking:
+      type: object
+      properties: 
+        messaage:
+          type: array
+          description: Give a vaild input
+          examples: 
+            - Please give the valid booking id
+    Errorwishlist:
+      type: object
+      properties: 
+        message:
+          type: string
+          description: Give a valid input
+          examples: 
+            - please give the valid wishlist id 
+
