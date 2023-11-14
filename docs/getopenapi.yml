@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: Airbnb Clone API
+  description: REST API for the Full Stack Airbnb Clone project
+  version: 'v1.0'
+
+paths:
+  /api/user:
+    get:
+      summary: Get User Profile
+      description: Retrieve user profile information.
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                userId: "12345"
+                username: "john_doe"
+                email: "john.doe@example.com"
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    description: The unique identifier for the user.
+                  username:
+                    type: string
+                    description: The username of the user.
+                  email:
+                    type: string
+                    format: email
+                    description: The email of the user.
+
+        '404':
+          description: User not found
+          content:
+            application/json:
+              example:
+                error: "User not found"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: A brief description of the error.
+
+                    paths:
+  /api/booking-reservation/{reservationId}:
+    get:
+      summary: Get Booking Reservation Details
+      description: Retrieve details for a specific booking reservation.
+
+      parameters:
+        - name: reservationId
+          in: path
+          description: The unique identifier for the booking reservation.
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                reservationId: "98765"
+                userId: "12345"
+                propertyId: "54321"
+                checkInDate: "2023-01-01"
+                checkOutDate: "2023-01-05"
+                totalCost: 1500
+              schema:
+                type: object
+                properties:
+                  reservationId:
+                    type: string
+                    description: The unique identifier for the booking reservation.
+                  userId:
+                    type: string
+                    description: The user ID of the reservation creator.
+                  propertyId:
+                    type: string
+                    description: The property ID being reserved.
+                  checkInDate:
+                    type: string
+                    format: date
+                    description: The check-in date for the reservation.
+                  checkOutDate:
+                    type: string
+                    format: date
+                    description: The check-out date for the reservation.
+                  totalCost:
+                    type: number
+                    description: The total cost of the reservation.
+
+        '404':
+          description: Booking reservation not found
+          content:
+            application/json:
+              example:
+                error: "Booking reservation not found"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: A brief description of the error.
+
+                    paths:
+  /api/property-offering/{propertyId}:
+    get:
+      summary: Get Property Offering Details
+      description: Retrieve details for a specific property offering.
+
+      parameters:
+        - name: propertyId
+          in: path
+          description: The unique identifier for the property offering.
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                propertyId: "54321"
+                title: "Luxury Villa with Ocean View"
+                description: "Beautiful villa with breathtaking ocean views."
+                imageUrl: "https://example.com/villa.jpg"
+                location: "Paradise City, Dreamland"
+                amenities:
+                  - "Swimming Pool"
+                  - "Free Wi-Fi"
+                pricePerNight: 300
+              schema:
+                type: object
+                properties:
+                  propertyId:
+                    type: string
+                    description: The unique identifier for the property offering.
+                  title:
+                    type: string
+                    description: The title of the property.
+                  description:
+                    type: string
+                    description: A brief description of the property.
+                  imageUrl:
+                    type: string
+                    format: url
+                    description: The URL of the image associated with the property.
+                  location:
+                    type: string
+                    description: The location of the property.
+                  amenities:
+                    type: array
+                    items:
+                      type: string
+                    description: The amenities offered by the property.
+                  pricePerNight:
+                    type: number
+                    description: The price per night for the property.
+
+        '404':
+          description: Property offering not found
+          content:
+            application/json:
+              example:
+                error: "Property offering not found"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: A brief description of the error.
+
+                    paths:
+  /api/wishlist/{userId}:
+    get:
+      summary: Get User Wishlist
+      description: Retrieve the wishlist for a specific user.
+
+      parameters:
+        - name: userId
+          in: path
+          description: The unique identifier for the user.
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                userId: "12345"
+                wishlist:
+                  - propertyId: "54321"
+                    title: "Luxury Villa with Ocean View"
+                    description: "Beautiful villa with breathtaking ocean views."
+                    imageUrl: "https://example.com/villa.jpg"
+                    location: "Paradise City, Dreamland"
+                    amenities:
+                      - "Swimming Pool"
+                      - "Free Wi-Fi"
+                    pricePerNight: 300
+                  - propertyId: "67890"
+                    title: "Cozy Mountain Cabin"
+                    description: "Charming cabin nestled in the mountains."
+                    imageUrl: "https://example.com/cabin.jpg"
+                    location: "Mountain Retreat, Serenity Peaks"
+                    amenities:
+                      - "Fireplace"
+                      - "Scenic Views"
+                    pricePerNight: 150
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    description: The unique identifier for the user.
+                  wishlist:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        propertyId:
+                          type: string
+                          description: The unique identifier for the property.
+                        title:
+                          type: string
+                          description: The title of the property.
+                        description:
+                          type: string
+                          description: A brief description of the property.
+                        imageUrl:
+                          type: string
+                          format: url
+                          description: The URL of the image associated with the property.
+                        location:
+                          type: string
+                          description: The location of the property.
+                        amenities:
+                          type: array
+                          items:
+                            type: string
+                          description: The amenities offered by the property.
+                        pricePerNight:
+                          type: number
+                          description: The price per night for the property.
+
+        '404':
+          description: Wishlist not found
+          content:
+            application/json:
+              example:
+                error: "Wishlist not found"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: A brief description of the error.
+
+
+
