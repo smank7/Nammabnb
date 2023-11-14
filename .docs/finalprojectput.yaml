@@ -1,0 +1,225 @@
+openapi: 3.1.0
+info:
+  title: Airbnb API
+  version: 'v1.0'
+  description: API for managing users, guests, hosts, bookings, and payments
+
+paths:
+  /users/{user_id}:
+    put:
+      summary: Update a user
+      description: Update user details
+      operationId: updateUser
+      parameters:
+        - name: user_id
+          in: path
+          description: ID of the user to update
+          required: true
+          example: hasini
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Updated password
+          required: true
+          example: "0909"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful update
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /bookingreservation/{stay_id}:
+    put:
+      summary: Update booking price
+      description: Update price details for a booking
+      operationId: updateBookingPrice
+      parameters:
+        - name: stay_id
+          in: path
+          description: ID of the stay to update
+          required: true
+          example: r12
+          schema:
+            type: string
+        - name: price
+          in: query
+          description: Updated price details
+          required: true
+          example: 450$
+          schema:
+            type: string
+        - name: days
+          in: query
+          description: update number of days 
+          required: true
+          example: 5
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful update
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingReservation'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /propertyoffering/{booking_id}:
+    put:
+      summary: Filter property offerings
+      description: Filter based on selected location, properties, and amenities
+      operationId: filterPropertyOfferings
+      parameters:
+        - name: booking_id
+          in: path
+          description: ID of the booking to update
+          required: true
+          example: b45
+          schema:
+            type: string
+        - name: location
+          in: query
+          description: Selected region
+          required: true
+          example: pillsburg
+          schema:
+            type: string
+        - name: property
+          in: query
+          description: Change property selected
+          required: true
+          example: villa
+          schema:
+            type: string
+        - name: amenities
+          in: query
+          description: Amenities updating
+          required: true
+          example: gas,power
+          schema:
+            type: string
+        - name: upgrade_price
+          in: query
+          description: Increase price by host
+          required: true
+          example: 670$
+          schema:
+            type: string    
+      responses:
+        '200':
+          description: Successful update
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyOffering'
+        '401':
+          description: Unauthenticated request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /wishlist/{wishlist_id}:
+    put:
+      summary: Update user wishlist
+      description: Add more to favorites
+      operationId: updateUserWishlist
+      parameters:
+        - name: property_id
+          in: path
+          description: ID of the property to update in the wishlist
+          required: true
+          example: p23
+          schema:
+            type: string
+        - name: wishlist_id
+          in: path
+          description: ID of the property to update in the wishlist
+          required: true
+          example: w23
+          schema:
+            type: string
+        - name: favorites
+          in: query
+          description: Adding more to favorites
+          required: true
+          example: added
+          schema:
+            type: string    
+      responses:
+        '200':
+          description: Successful update
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wishlist'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    BookingReservation:
+      type: object
+      properties:
+        price:
+          type: string
+        days:
+          type: string
+    Wishlist:
+      type: object
+      properties:
+        add_more_to_favorites:
+          type: string
+    PropertyOffering:
+      type: object
+      properties:
+        booking_id:
+          type: string
+        location:
+          type: string
+        property:
+          type: string
+        amenities:
+          type: string
+        upgrade_price:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+          examples:
+            - AuthenticationError
+        message:
+          type: string
+          description: Error message
+          examples:
+            - Bad request.
