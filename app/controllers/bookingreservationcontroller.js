@@ -33,7 +33,7 @@ export const post = async (request, response) =>
 export const get = async (request, response)=> {
  try{
    const id = request.params.id;
-   const booking = await bookingreservationservices.findById(id);
+   const booking = await bookingreservationservices.give(id);
    setResponse(booking, response);
  }
  catch(err){

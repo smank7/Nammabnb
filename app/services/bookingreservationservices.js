@@ -8,13 +8,13 @@ export const save = async (newbooking) => {
    const reserve = new BRModel(newbooking);
    return await reserve.save();
 }
-export const find = async (id) => {
+export const give = async (id) => {
     const booking = await BRModel.findById(id).exec();
     return booking;
 }
 
-export const update = async (updatedCourse, id) => {
-    const booking = await BRModel.findByIdAndUpdate(id, updatedCourse).exec();
+export const update = async (updatedbooking, id) => {
+    const booking = await BRModel.findByIdAndUpdate(id, updatedbooking).exec();
     return booking;
 }
 export const remove = async (id) => {
