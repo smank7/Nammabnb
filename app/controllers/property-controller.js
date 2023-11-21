@@ -2,6 +2,7 @@ import * as propertyServices from '../services/property-services.js';
 import * as handlers from '../controllers/handler.js';
 
 // called from the router
+// Basically calls the services and sets the responses
 export const find = async (request,response) => {
     try{
         const params = {...request.query};
