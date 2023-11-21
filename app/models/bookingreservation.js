@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+// Define Mongoose schema for booking reservations
 const Schema = mongoose.Schema;
 const BookingreservationSchema = new Schema({
     stay_id: {
@@ -18,6 +18,6 @@ const BookingreservationSchema = new Schema({
 {
     versionKey:  false
 });
-
+// Create Mongoose model based on the schema
 const BRModel = mongoose.model('bookingresveration', BookingreservationSchema);
 export default BRModel;

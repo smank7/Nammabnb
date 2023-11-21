@@ -1,5 +1,7 @@
 import * as bookingreservationservices from '../services/bookingreservationservices.js';
 import { setResponse, setErrorResponse } from './responsehandler.js';
+
+// Retrieve booking reservations
 export const find = async (request, response) => {
     try {
         const params = {...request.query};
@@ -14,7 +16,7 @@ export const find = async (request, response) => {
               })
     }
 }
-
+// Create a new booking reservation
 export const post = async (request, response) =>
 {
      try {
@@ -27,7 +29,7 @@ export const post = async (request, response) =>
        setErrorResponse(err, response);
      }
 }
-
+// Retrieve a specific booking reservation by ID
 export const get = async (request, response)=> {
  try{
    const id = request.params.id;
@@ -38,7 +40,7 @@ export const get = async (request, response)=> {
    setErrorResponse(err, response);
  }
 }
-
+// Update a booking reservation by ID
 export const put = async (request, response)=> {
  try{
    const id = request.params.id;
@@ -50,7 +52,7 @@ export const put = async (request, response)=> {
    setErrorResponse(err, response);
  }
 }
-
+// Remove a booking reservation by ID
 export const remove = async (request, response)=> {
  try{
    const id = request.params.id;

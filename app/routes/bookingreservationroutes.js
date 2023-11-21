@@ -1,5 +1,5 @@
+// Import Express and booking reservation controller
 import express from "express";
-
 import * as brcontroller from '../controllers/bookingreservationcontroller.js';
 const router = express.Router();
 
