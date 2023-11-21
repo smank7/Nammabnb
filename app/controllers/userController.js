@@ -37,3 +37,18 @@ async function GetAllUsers(request, response){
         return response.status(500).json({message: error.message})
     }
 }
+
+//get specific(for particular id it returns the value) is below
+async function GetSingleUser(request, response){
+    
+    try{
+        const {id} = request.params
+        console.log(id)
+        const user = await userService.findUserByID(id)
+        return response.status(200).json({user})
+    }
+
+    catch(error){
+        return response.status(500).json({message: error.message})
+    }
+}
