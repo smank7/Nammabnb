@@ -18,3 +18,13 @@ async function findOneUser(email){
       throw new Error('Error creating user');
     }
 }
+
+async function findUserByID(id){
+  try {
+      const user = await User.findById(id)
+      return user;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error creating user');
+    }
+}
