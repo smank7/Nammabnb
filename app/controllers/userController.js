@@ -52,3 +52,29 @@ async function GetSingleUser(request, response){
         return response.status(500).json({message: error.message})
     }
 }
+
+//PATCH update user
+async function UpdateUser(request, response){
+    
+    try{
+        const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(400).json({ errors: errors.array() });
+    }const {id} = request.params
+        const user = await userService.UpdateUser(id,request.body)
+        if (!user){
+            return response.status(400).json({message: "user not found"})  
+        }
+        if(request.body.password){
+            request.body.password = await bcryptjs.hash(request.body.password,10)
+        }
+        const updateduser = await User.findByIdAndUpdate(id,{...request.body},{new:true})
+        
+
+        return response.status(200).json({user:updateduser})
+    }
+
+    catch(error){
+        return response.status(500).json({message: error.message})
+    }
+}
