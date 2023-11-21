@@ -1,5 +1,4 @@
 
-
 export const setResponse = (data, response) => {
     response.status(200)
             .json(data);
