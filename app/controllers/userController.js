@@ -78,3 +78,20 @@ async function UpdateUser(request, response){
         return response.status(500).json({message: error.message})
     }
 }
+
+//delete
+async function DeleteUser(request, response){
+    
+    try{
+        const {id} = request.params
+        console.log(id)
+        await userService.DeleteUser(id)
+        return response.status(200).json({message:"user deleted successfully"})
+    }
+
+    catch(error){
+        return response.status(500).json({message: error.message})
+    }
+}
+
+module.exports = {RegisterUser,GetAllUsers,GetSingleUser,UpdateUser,DeleteUser}
