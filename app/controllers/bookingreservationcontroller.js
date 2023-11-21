@@ -43,7 +43,7 @@ export const put = async (request, response)=> {
  try{
    const id = request.params.id;
    const updatedbooking = {...request.body};
-   const booking = await bookingreservationservices.update(updatedCourse, id);
+   const booking = await bookingreservationservices.update(updatedbooking, id);
    setResponse(booking, response);
  }
  catch(err){
