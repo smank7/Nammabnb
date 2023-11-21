@@ -10,7 +10,7 @@ const initalize = (app) => {
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    mongoose.connect('mongodb+srv://bnb:cTLX6fP6dsT4PTp3@cluster0.jrbulsy.mongodb.net/?retryWrites=true&w=majority');
+    mongoose.connect('mongodb+srv://Nammabnb:Nammabnb1234@nammabnb.0gsjaiz.mongodb.net/');
     registerRouter(app);
 }
 
