@@ -28,3 +28,13 @@ async function findUserByID(id){
       throw new Error('Error creating user');
     }
 }
+
+async function GetAllUSers(){
+  try {
+      const users = await User.find()
+      return users;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error creating user');
+    }
+}
