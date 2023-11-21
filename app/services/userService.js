@@ -38,3 +38,13 @@ async function GetAllUSers(){
       throw new Error('Error creating user');
     }
 }
+
+async function DeleteUser(id){
+  try {
+      const users = await User.findByIdAndDelete(id)
+      return users;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error creating user');
+    }
+}
