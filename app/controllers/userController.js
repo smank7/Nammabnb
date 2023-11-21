@@ -24,3 +24,16 @@ async function RegisterUser(request, response){
     }
 }
 
+//get is below
+async function GetAllUsers(request, response){
+    
+    
+    try{
+        const users = await userService.GetAllUSers()
+        return response.status(200).json({users})
+    }
+
+    catch(error){
+        return response.status(500).json({message: error.message})
+    }
+}
