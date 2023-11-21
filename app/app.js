@@ -1,8 +1,8 @@
 import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
-import registerRouter from '../routes/index.js';
-import models from '../models/index.js';
+import registerRouter from './routes/index.js';
+import models from './models/index.js';
 
 // This is called from the server.js file
 const initalize = (app) => {

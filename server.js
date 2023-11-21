@@ -1,5 +1,5 @@
 import express from 'express';
-import initalize from './app/services/app.js';
+import initalize from './app/app.js';
 
 
 const app = express();
