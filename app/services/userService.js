@@ -9,3 +9,12 @@ async function createUser(userData){
       }
 }
 
+async function findOneUser(email){
+  try {
+      const newUser = await User.findOne({email});
+      return newUser;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error creating user');
+    }
+}
