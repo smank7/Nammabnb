@@ -4,9 +4,9 @@ import mongoose from 'mongoose';
 import registerRouter from '../routes/index.js';
 import models from '../models/index.js';
 
-
+// This is called from the server.js file
 const initalize = (app) => {
-
+// cross origin 
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));

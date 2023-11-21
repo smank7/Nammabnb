@@ -2,7 +2,7 @@ import { Decimal128 } from 'bson';
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-
+// It is just a schema and the mongo db doesn't know what is mentioned in this schema
 const PropertySchema = new Schema({
 
     propertyId: {

@@ -4,7 +4,7 @@ import * as propertyController from '../controllers/property-controller.js';
 
 
 const router = express.Router();
-
+// Based the http method used in the request it routes to the controller - services
 router.route('/')
   .get(propertyController.find)
   .post(propertyController.post);
