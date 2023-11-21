@@ -48,3 +48,15 @@ async function DeleteUser(id){
       throw new Error('Error creating user');
     }
 }
+
+async function UpdateUser(id,userData){
+  try {
+      const user = await User.findByIdAndUpdate(id,userData,{new:true})//returning new document after updaating
+      return user;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error creating user');
+    }
+}
+
+module.exports = {createUser,findOneUser,findUserByID,GetAllUSers,DeleteUser,UpdateUser}
