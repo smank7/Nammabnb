@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -9,20 +9,21 @@ import useLoginModal from "../hooks/UseLoginModel";
 import useRegisterModal from "../hooks/UseRegisterModel";
 import useRentModal from "../hooks/UseRentModal";
 import { SafeUser } from "@/app/types";
-
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 
+import { useTranslation } from "react-i18next";
+import { Suspense } from "react";
+import LocaleContext from "@/app/LocaleContext";
+import i18n from "@/app/i18n";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  currentUser?: SafeUser | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({
-  currentUser
-}) => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
-
+  const { t } = useTranslation();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
@@ -41,12 +42,18 @@ const UserMenu: React.FC<UserMenuProps> = ({
     rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
 
-  return ( 
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on("languageChanged", (lng: any) => setLocale(i18n.language));
+  const handleChange = (event: any) => {
+    i18n.changeLanguage(event.target.value);
+  };
+  return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div 
-          onClick={onRent}
-          className="
+        <LocaleContext.Provider value={{ locale, setLocale }}>
+          <div
+            onClick={onRent}
+            className="
             hidden
             md:block
             text-sm 
@@ -58,12 +65,19 @@ const UserMenu: React.FC<UserMenuProps> = ({
             transition 
             cursor-pointer
           "
-        >
-          Airbnb your home
-        </div>
-        <div 
-        onClick={toggleOpen}
-        className="
+          >
+            {t("Nammabnb your home")}
+          </div>
+          <div>
+            <select value={locale} onChange={handleChange}>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="sp">Spanish</option>
+            </select>
+          </div>
+          <div
+            onClick={toggleOpen}
+            className="
           p-4
           md:py-1
           md:px-2
@@ -78,15 +92,16 @@ const UserMenu: React.FC<UserMenuProps> = ({
           hover:shadow-md 
           transition
           "
-        >
-          <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
+          >
+            <AiOutlineMenu />
+            <div className="hidden md:block">
+              <Avatar src={currentUser?.image} />
+            </div>
           </div>
-        </div>
+        </LocaleContext.Provider>
       </div>
       {isOpen && (
-        <div 
+        <div
           className="
             absolute 
             rounded-xl 
@@ -103,49 +118,37 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem 
-                  label="My trips" 
-                  onClick={() => router.push('/trips')}
+                <MenuItem
+                  label={t("My trips")}
+                  onClick={() => router.push("/trips")}
                 />
-                <MenuItem 
-                  label="My favorites" 
-                  onClick={() => router.push('/favorites')}
+                <MenuItem
+                  label={t("My favorites")}
+                  onClick={() => router.push("/favorites")}
                 />
-                <MenuItem 
-                  label="My reservations" 
-                  onClick={() => router.push('/reservations')}
+                <MenuItem
+                  label={t("My reservations")}
+                  onClick={() => router.push("/reservations")}
                 />
-                <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
+                <MenuItem
+                  label={t("My properties")}
+                  onClick={() => router.push("/properties")}
                 />
-                <MenuItem 
-                  label="Airbnb your home" 
-                  onClick={rentModal.onOpen}
-                />
+                <MenuItem label={t("Nammabnb your home")} onClick={rentModal.onOpen} />
                 <hr />
-                <MenuItem 
-                  label="Logout" 
-                  onClick={() => signOut()}
-                />
+                <MenuItem label={t("Logout")} onClick={() => signOut()} />
               </>
             ) : (
               <>
-                <MenuItem 
-                  label="Login" 
-                  onClick={loginModal.onOpen}
-                />
-                <MenuItem 
-                  label="Sign up" 
-                  onClick={registerModal.onOpen}
-                />
+                <MenuItem label={t("Login")} onClick={loginModal.onOpen} />
+                <MenuItem label={t("Sign up")} onClick={registerModal.onOpen} />
               </>
             )}
           </div>
         </div>
       )}
     </div>
-   );
-}
- 
+  );
+};
+
 export default UserMenu;
