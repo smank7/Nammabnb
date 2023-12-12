@@ -12,13 +12,14 @@ import {
   useForm
 } from "react-hook-form";
 
-import useLoginModal from "../hooks/UseLoginModel";
-import useRegisterModal from "../hooks/UseRegisterModel";
+
 
 import Modal from "./Modal";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
 import Button from "../Button";
+import useRegisterModal from "../hooks/UseRegisterModel";
+import useLoginModal from "../hooks/UseLoginModel";
 
 const RegisterModal= () => {
   const registerModal = useRegisterModal();
