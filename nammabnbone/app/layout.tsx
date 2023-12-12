@@ -42,6 +42,7 @@ export default async function RootLayout({
         <div className="pb-20 pt-28">
           {children}
         </div>
+        <script src='https://embed.tawk.to/657245fabfb79148e59b95d9/1hh362man' />
       </body>
     </html>
   )
