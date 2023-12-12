@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-
+let renderCount = 0
 const PaymentConfirmation = () => {
 	const router = useRouter();
 	const queryParams = useSearchParams();
@@ -18,7 +18,9 @@ const PaymentConfirmation = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		if (!startDate || !endDate || !listingId || !price) {
+
+		if (!startDate || !endDate || !listingId || !price || renderCount > 0) {
+
 			return;
 		}
 
@@ -40,6 +42,7 @@ const PaymentConfirmation = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
+			renderCount++
 	}, [
 		price,
 		startDate,
