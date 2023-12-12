@@ -140,7 +140,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               </>
             ) : (
               <>
-                <MenuItem label={t("Login")} onClick={loginModal.onOpen} />
+                <MenuItem label={t("Login")} onClick={loginModal.onOpen} isLabelBold />
                 <MenuItem label={t("Sign up")} onClick={registerModal.onOpen} />
               </>
             )}
