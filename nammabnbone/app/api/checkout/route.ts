@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { env } from 'process';
 import Stripe from 'stripe';
 
 export async function POST(req: NextRequest) {
@@ -9,17 +8,30 @@ export async function POST(req: NextRequest) {
 			: process.env.DEPLOYED_APP_URL;
 	try {
 		const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-		const { price, title, currency, startDate, endDate, listingId } =
-			await req.json();
-			const startDateFormatted = new Date(startDate).toISOString();
-			const endDateFormatted = new Date(endDate).toISOString();
-		const url = `${redirectURL}/payment-confirmation?startDate=${startDateFormatted}&endDate=${endDateFormatted}&listingId=${listingId}&totalPrice=${price}`;
+		const {
+			price,
+			title,
+			currency,
+			startDate,
+			endDate,
+			listingId,
+			pricePerNight,
+			imageUrl,
+			propertyType,
+			guestCount,
+		} = await req.json();
+		const startDateFormatted = new Date(startDate).toISOString();
+		const endDateFormatted = new Date(endDate).toISOString();
+		const actualPrice = price / 100;
+		const successUrl = `${redirectURL}/payment-confirmation?startDate=${startDateFormatted}&endDate=${endDateFormatted}&listingId=${listingId}&totalPrice=${actualPrice}`;
+
+		const cancelUrl = `${redirectURL}/checkout?checkin=${startDate}&checkout=${endDate}&guestCurrency=USD&numberOfGuests=${guestCount}&propertyId=${listingId}&propertyName=${title}&propertyType=${propertyType}&imageUrl=${imageUrl}&pricePerNight=${pricePerNight}&rating=4.5&reviewsCount=25&isSuperHost=false`;
 
 		const session = await stripe.checkout.sessions.create({
 			mode: 'payment',
 			payment_method_types: ['card'],
-			success_url: url,
-			cancel_url: `${redirectURL}/checkout`,
+			success_url: successUrl,
+			cancel_url: cancelUrl,
 			line_items: [
 				{
 					price_data: {

@@ -86,7 +86,12 @@ const CheckoutPage = () => {
 			startDate: checkin,
 			endDate: checkout,
 			listingId: propertyId,
+			imageUrl: decodedImageUrl,
+			pricePerNight: pricePerNight,
+			type: propertyType,
+			guestCount: numberOfGuests,
 		};
+
 		const headers = {
 			'Content-Type': 'application/json',
 		};
