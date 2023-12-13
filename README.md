@@ -1,9 +1,12 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/OuSBNpwM)
 # Nammabnb Project
 
-Nammabnb Project README
+Nammabnb Project
+
+The word Namma stands for “my’’ in Tamil(நம்ம) and Kannada(ನಮ್ಮ)
+
 Project Overview
-The Nammabnb project is designed to replicate key functionalities of the popular accommodation booking platform, Nammabnb. This project incorporates HTML, CSS, TypeScript for the front-end, and MongoDB for backend data storage.
+The Nammabnb project is designed to replicate key functionalities of the popular accommodation booking platform, Nammabnb. This project incorporates HTML, CSS, and TypeScript for the front end, and MongoDB for backend data storage.
 
 # Features
 1. Login Page
@@ -13,7 +16,7 @@ User credentials are securely processed.
 Authentication tokens are used for secure user sessions.
 
 2. Landing Page
-Description: The landing page serves as the primary interface for users to explore available accommodations.
+Description: The landing page is the primary interface for users to explore available accommodations.
 Implementation Details:
 Accommodation listings are retrieved from the MongoDB database.
 Users can browse and filter listings based on various criteria.
