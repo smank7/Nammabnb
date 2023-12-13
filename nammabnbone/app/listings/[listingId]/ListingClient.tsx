@@ -1,21 +1,20 @@
 'use client';
 
-import axios from 'axios';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { toast } from 'react-hot-toast';
-import { Range } from 'react-date-range';
-import { useRouter } from 'next/navigation';
 import { differenceInDays, eachDayOfInterval } from 'date-fns';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Range } from 'react-date-range';
 
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 
 import Container from '@/app/components/Container';
-import { categories } from '@/app/components/navbar/Categories';
+import useLoginModal from '@/app/components/hooks/UseLoginModel';
 import ListingHead from '@/app/components/listings/ListingHead';
 import ListingInfo from '@/app/components/listings/ListingInfo';
 import ListingReservation from '@/app/components/listings/ListingReservation';
-import useLoginModal from '@/app/components/hooks/UseLoginModel';
-import { formatDateToYYYYMMDD } from '@/app/checkout/date';
+import { categories } from '@/app/components/navbar/Categories';
+import { RootState } from '@/app/global-redux/store';
+import { useSelector } from 'react-redux';
 
 const initialDateRange = {
 	startDate: new Date(),
@@ -28,14 +27,13 @@ interface ListingClientProps {
 	listing: SafeListing & {
 		user: SafeUser;
 	};
-	currentUser?: SafeUser | null;
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
 	listing,
 	reservations = [],
-	currentUser,
 }) => {
+	const currentUser = useSelector((state: RootState) => state.user);
 	const loginModal = useLoginModal();
 	const router = useRouter();
 
@@ -62,32 +60,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 	const [totalPrice, setTotalPrice] = useState(listing.price);
 	const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
-	const onCreateReservation = useCallback(() => {
-		if (!currentUser) {
-			return loginModal.onOpen();
-		}
-		setIsLoading(true);
-
-		axios
-			.post('/api/reservations', {
-				totalPrice,
-				startDate: dateRange.startDate,
-				endDate: dateRange.endDate,
-				listingId: listing?.id,
-			})
-			.then(() => {
-				toast.success('Listing reserved!');
-				setDateRange(initialDateRange);
-				router.push('/trips');
-			})
-			.catch(() => {
-				toast.error('Something went wrong.');
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
-	}, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal]);
-
 	const onCheckout = useCallback(() => {
 		if (!currentUser) {
 			return loginModal.onOpen();
@@ -100,7 +72,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 		const pricePerNight = listing.price;
 		const imageUrl = encodeURIComponent(listing.imageSrc);
 
-	
 		const url = `/checkout?checkin=${dateRange.startDate}&checkout=${dateRange.endDate}&guestCurrency=USD&numberOfGuests=${guestCount}&propertyId=${listing.id}&propertyName=${title}&propertyType=${type}&imageUrl=${imageUrl}&pricePerNight=${pricePerNight}&rating=4.5&reviewsCount=25&isSuperHost=false`;
 
 		router.push(url);
@@ -134,7 +105,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 						imageSrc={listing.imageSrc}
 						locationValue={listing.locationValue}
 						id={listing.id}
-						currentUser={currentUser}
 					/>
 					<div
 						className='
@@ -165,7 +135,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
 								totalPrice={totalPrice}
 								onChangeDate={(value) => setDateRange(value)}
 								dateRange={dateRange}
-								onSubmit={onCreateReservation}
 								onCheckout={onCheckout}
 								disabled={isLoading}
 								disabledDates={disabledDates}
