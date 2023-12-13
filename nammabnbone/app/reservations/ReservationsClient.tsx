@@ -13,12 +13,10 @@ import ListingCard from "@/app/components/listings/ListingCard";
 
 interface ReservationsClientProps {
   reservations: SafeReservation[],
-  currentUser?: SafeUser | null,
 }
 
 const ReservationsClient: React.FC<ReservationsClientProps> = ({
   reservations,
-  currentUser
 }) => {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState('');
@@ -67,7 +65,6 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
             onAction={onCancel}
             disabled={deletingId === reservation.id}
             actionLabel="Cancel guest reservation"
-            currentUser={currentUser}
           />
         ))}
       </div>
