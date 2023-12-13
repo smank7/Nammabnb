@@ -64,22 +64,6 @@ Use Postman or any API testing tool to test the API endpoints.
 Send requests to the specified endpoints with valid request bodies.
 Verify the responses and ensure that the API functions as expected.
 
-# API Endpoints
-
-GET:
-![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/145234036/13f02e92-c1b5-44ba-afd9-fb69c01617d7)
-
-POST:
-![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/145234036/3b51691f-2175-4499-833d-7af22e3f9b4c)
-
-with validations:
-![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/145234036/cf17503f-f964-4ca0-aa0b-6794e62cf250)
-
-
-
-----------------
-made changes from here
-----------------
 
 # Project Tech Stack
 
