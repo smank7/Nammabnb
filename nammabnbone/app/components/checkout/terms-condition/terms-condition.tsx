@@ -33,9 +33,9 @@ export const TermsCondition = ({ onConfirmCheckout }: TermsConditionProps) => {
 					<span
 						role='button'
 						className='font-semibold underline underline-offset-2'>
-						{"Airbnb's Rebooking and Refund Policy"}
+						{"Nammabnb's Rebooking and Refund Policy"}
 					</span>{' '}
-					and that Airbnb can{' '}
+					and that Nammabnb can{' '}
 					<span
 						role='button'
 						className='font-semibold underline underline-offset-2'>
