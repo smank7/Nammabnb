@@ -1,8 +1,8 @@
-import { UserDetail } from '@/app/types/prisma.types';
+import { SafeUser } from '@/app/types';
 import { User } from '@prisma/client';
 import { createSlice } from '@reduxjs/toolkit';
 
-export type UserState = UserDetail | null;
+export type UserState = SafeUser | null;
 
 const initialState: UserState = null;
 
