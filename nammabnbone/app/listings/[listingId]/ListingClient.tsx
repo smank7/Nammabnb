@@ -15,6 +15,7 @@ import ListingReservation from '@/app/components/listings/ListingReservation';
 import { categories } from '@/app/components/navbar/Categories';
 import { RootState } from '@/app/global-redux/store';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const initialDateRange = {
 	startDate: new Date(),
@@ -59,6 +60,32 @@ const ListingClient: React.FC<ListingClientProps> = ({
 	const [isLoading, setIsLoading] = useState(false);
 	const [totalPrice, setTotalPrice] = useState(listing.price);
 	const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+
+	// const onCreateReservation = useCallback(() => {
+	// 	if (!currentUser) {
+	// 		return loginModal.onOpen();
+	// 	}
+	// 	setIsLoading(true);
+
+	// 	axios
+	// 		.post('/api/reservations', {
+	// 			totalPrice,
+	// 			startDate: dateRange.startDate,
+	// 			endDate: dateRange.endDate,
+	// 			listingId: listing?.id,
+	// 		})
+	// 		.then(() => {
+	// 			toast.success('Listing reserved!');
+	// 			setDateRange(initialDateRange);
+	// 			router.push('/trips');
+	// 		})
+	// 		.catch(() => {
+	// 			toast.error('Something went wrong.');
+	// 		})
+	// 		.finally(() => {
+	// 			setIsLoading(false);
+	// 		});
+	// }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal]);
 
 	const onCheckout = useCallback(() => {
 		if (!currentUser) {
@@ -135,6 +162,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 								totalPrice={totalPrice}
 								onChangeDate={(value) => setDateRange(value)}
 								dateRange={dateRange}
+								// onSubmit= {onCreateReservation}
 								onCheckout={onCheckout}
 								disabled={isLoading}
 								disabledDates={disabledDates}
