@@ -176,10 +176,10 @@ Features:
 - Favorites System
 - Shareable URL filters <br>
 
--- Let's say you select a category, location, and date range, you will be able to share the URL with a logged-out friend in another browser and they will see the same results
--- How to write POST and DELETE routes in route handlers (app/API)
--- How to fetch data in server react components by directly accessing the database (WITHOUT API! like Magic!)
--- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling
+-- Let's say you select a category, location, and date range, you will be able to share the URL with a logged-out friend in another browser and they will see the same results <br>
+-- How to write POST and DELETE routes in route handlers (app/API)<br>
+-- How to fetch data in server react components by directly accessing the database (WITHOUT API! like Magic!)<br>
+-- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling<br>
 -- How to handle relations between Server and Child components!
 
 ## Prerequisites
