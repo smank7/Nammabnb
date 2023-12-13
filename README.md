@@ -29,9 +29,9 @@ Payment transactions are processed securely using established payment gateways.
 Prerequisites
 
 # Ensure that the following software is installed before running the project:
-Node.js
-MongoDB
-npm
+- Node.js
+- MongoDB
+- npm
 
 ![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/145234036/e8617333-971f-4822-a29c-6ce6c03a0004)
 
