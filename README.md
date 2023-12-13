@@ -191,7 +191,6 @@ Make sure you have Node.js version 14.x installed.
 ## Cloning the Repository
 
 ```bash
-git clone https://github.com/AntonioErdeljac/next13-airbnb-clone.git
 
 Install Packages
 npm install
