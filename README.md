@@ -184,8 +184,7 @@ Features:
 -- How to fetch data in server react components by directly accessing the database (WITHOUT API! like Magic!)<br>
 -- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling<br>
 -- How to handle relations between Server and Child components!
-## Image
-WhatsApp Image 2023-12-13 at 8.30.38 PM.jpeg
+
 ## Prerequisites
 
 Make sure you have Node.js version 14.x installed.
@@ -233,8 +232,6 @@ npm install next-auth @prisma/client/ @next-auth/prisma-adapter
 - Start the App
 npm run dev
 
-
-![WhatsApp Image 2023-12-13 at 8 30 38 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/50d338bb-7a32-4207-b137-d5111737a5f9)
 
 
 
