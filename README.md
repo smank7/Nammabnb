@@ -69,7 +69,7 @@ git clone https://github.com/your-username/nammabnb.git
 npm i
 
 # Error Handling
-The API handles errors gracefully and responds with appropriate status codes and error messages for invalid requests or server errors.
+The API handles errors are handled and responds with appropriate status codes and error messages for invalid requests or server errors.
 
 # Testing
 Use Postman or any API testing tool to test the API endpoints.
