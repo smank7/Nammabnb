@@ -111,6 +111,9 @@ This project is built using a variety of technologies to create a modern and eff
 6. **NextAuth:**
    - NextAuth (Authentication library for Next.js)
 
+7. **Redux:**
+   - Javascript Library
+
 ## Languages
 
 1. **JavaScript (JS):**
