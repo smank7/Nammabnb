@@ -8,6 +8,9 @@ The word Namma stands for “my’’ in Tamil(நம்ம) and Kannada(ನಮ�
 - Project Overview <br>
 The Nammabnb project is designed to replicate key functionalities of the popular accommodation booking platform, Nammabnb. This project incorporates HTML, CSS, and TypeScript for the front end, and MongoDB for backend data storage.
 
+A video of the team explaining our project hosted on Google Drive: <br>
+[Link Text](https://drive.google.com/file/d/1EyBhAFJ5ydpz5TYg0VA3jNiLIDmdlUxO/view?usp=sharing)
+
 # Features
 1. Login Page
 Description: The login page provides users with a secure authentication mechanism.
