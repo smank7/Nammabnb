@@ -17,6 +17,7 @@ Description: The login page provides users with a secure authentication mechanis
 Implementation Details:
 User credentials are securely processed.
 Authentication tokens are used for secure user sessions.
+It has chatbot too
 
 2. Landing Page
 Description: The landing page is the primary interface for users to explore available accommodations.
@@ -234,6 +235,10 @@ npm run dev
 
 ##github PR link for viewing code documentation
 https://github.com/info-6150-fall-2023/final-project-techno-sync/tree/AbhinayPRforCodeDocumentation
+
+
+Have used redux to manage app-wide state and to solve prop drilling
+https://docs.google.com/document/d/1wm8Mf7IR-4q7Kl1YVr2ah0mpmdxR4gTWKcgLT2oyTWc/edit
 
 
 
