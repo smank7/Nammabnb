@@ -66,12 +66,7 @@ Setup
 git clone https://github.com/your-username/nammabnb.git
 
 # Install Dependencies:
-cd nammabnb
-npm install
-
-
-# Start the Server:
-npm start
+npm i
 
 # Error Handling
 The API handles errors gracefully and responds with appropriate status codes and error messages for invalid requests or server errors.
@@ -203,7 +198,7 @@ Make sure you have Node.js version 14.x installed.
 ```bash
 
 Install Packages
-npm install
+npm i
 
 Setup .env File
 Create a .env file in the root of your project and add the following variables:
@@ -226,6 +221,7 @@ JWT_SECRET=jwtsecret
 - Setup Prisma:
 npx prisma db push
 
+- Commands used for installing Libraries
 npx create-next-app --typescript
 npm i react-date-range
 npm i -D @types/react-date-range
