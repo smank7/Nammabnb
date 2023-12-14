@@ -176,12 +176,10 @@ Features:
 - Advanced search algorithm by category, date range, map location, number of guests, rooms and bathrooms
 - Favorites System
 - Shareable URL filters <br>
+- Payment checkout page
+- payment page
+- success thank you page
 
--- Let's say you select a category, location, and date range, you will be able to share the URL with a logged-out friend in another browser and they will see the same results <br>
--- How to write POST and DELETE routes in route handlers (app/API)<br>
--- How to fetch data in server react components by directly accessing the database (WITHOUT API! like Magic!)<br>
--- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling<br>
--- How to handle relations between Server and Child components!
 
 ![WhatsApp Image 2023-12-13 at 8 30 38 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/e919b1b8-93ee-4c3f-9c7d-0ac0ed5db677)
 ![WhatsApp Image 2023-12-13 at 8 31 12 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/da2ec2e3-ac64-4e4b-b909-1105059b189c)
@@ -204,7 +202,6 @@ Setup .env File
 Create a .env file in the root of your project and add the following variables:
 
 DATABASE_URL="mongodb+srv://narayanandee:Nammabnb@cluster0.0ylqfuz.mongodb.net/test"
-MONGODB_URI=mongodb+srv://Nammabnb:Nammabnb1234@nammabnb.0gsjaiz.mongodb.net/
 NEXTAUTH_SECRET="NEXTAUTH_SECRET"
 GITHUB_ID=845e59eec3934c95ca75
 GITHUB_SECRET=83b6fb92cb52dd24c24207ee9d70d4fe0a41e7b7
@@ -212,8 +209,6 @@ GOOGLE_CLIENT_ID=1022443289191-5ju4ibd8cbvev4th0g7amobe285q6ph5.apps.googleuserc
 GOOGLE_CLIENT_SECRET=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
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="dydylqlwn"
 AUTH_TOKEN=d41600f6fdd1272e1b19379bc6555133
-# SID=AC6fc706f7420469c7583d93dd5e0264ec
-# TWILLIO_PHONE_NUMBER=+14199280244
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51OKjBEKXqBj2n8MJyJCxXOfRdWXHO7nVZnI9tJIBVsy9qLKnlbZgTVURMbsxqEoedHykktYUvZjkv6xsZsBpE3J300DEk0nvnV
 STRIPE_SECRET_KEY=sk_test_51OKjBEKXqBj2n8MJexDFXubg0umAGmRpgakcPE0hcEgq7fVDHAryDl0ngRADd6payzkV8YZPdLIArrqPICc03ucU00uO5BiN1r
 JWT_SECRET=jwtsecret
