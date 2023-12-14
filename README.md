@@ -185,6 +185,8 @@ Features:
 -- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling<br>
 -- How to handle relations between Server and Child components!
 
+![WhatsApp Image 2023-12-13 at 8 30 38 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/e919b1b8-93ee-4c3f-9c7d-0ac0ed5db677)
+
 ## Prerequisites
 
 Make sure you have Node.js version 14.x installed.
