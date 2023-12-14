@@ -187,6 +187,9 @@ Features:
 ![WhatsApp Image 2023-12-13 at 8 47 40 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/1a071edf-2f57-4d09-88aa-1415811cf6f1)
 ![paymentpage](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/87de8452-f9d1-4a14-a1cb-151d9f3eafe8)
 ![StripePage](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/103a90ec-128f-40be-a789-478fed61697b)
+![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/2fa268b7-c2ec-43a6-9fb9-70a221c56eb0)
+![WhatsApp Image 2023-12-13 at 11 46 26 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/fc43fa22-b5bb-49ec-8151-8eecfd8737b0)
+
 
 ## Prerequisites
 
