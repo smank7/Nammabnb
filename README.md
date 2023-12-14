@@ -232,6 +232,9 @@ npm install next-auth @prisma/client/ @next-auth/prisma-adapter
 - Start the App
 npm run dev
 
+##github PR link for viewing code documentation
+https://github.com/info-6150-fall-2023/final-project-techno-sync/tree/AbhinayPRforCodeDocumentation
+
 
 
 
