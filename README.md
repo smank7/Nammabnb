@@ -233,6 +233,7 @@ npm install next-auth @prisma/client/ @next-auth/prisma-adapter
 npm run dev
 
 
+![WhatsApp Image 2023-12-13 at 8 30 38 PM](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/144633279/577aed70-5846-4984-93b3-472bbb199836)
 
 
 
