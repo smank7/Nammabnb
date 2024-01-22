@@ -48,7 +48,7 @@ Prerequisites
 - MongoDB
 - npm
 
-![image](https://github.com/info-6150-fall-2023/final-project-techno-sync/assets/145234036/e8617333-971f-4822-a29c-6ce6c03a0004)
+![image](airbnbdomaindrivendiagram.jpg)
 
 
 # Nammabnb - User Management API
