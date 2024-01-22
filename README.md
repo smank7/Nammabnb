@@ -181,7 +181,9 @@ Features:
 - payment page
 - success thank you page
 
-![image](1.jpg)
+![image](1.jpeg)
+![image](2.jpeg)
+![image](3.jpeg)
 
 
 ## Prerequisites
