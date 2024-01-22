@@ -184,6 +184,10 @@ Features:
 ![image](1.jpeg)
 ![image](2.jpeg)
 ![image](3.jpeg)
+![image](4.jpg)
+![image](5.jpg)
+![image](6.png)
+![image](7.jpeg)
 
 
 ## Prerequisites
