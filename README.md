@@ -17,7 +17,7 @@ Description: The login page provides users with a secure authentication mechanis
 Implementation Details:
 User credentials are securely processed.
 Authentication tokens are used for secure user sessions.
-It has chatbot too
+It has a chatbot too
 
 2. Landing Page
 Description: The landing page is the primary interface for users to explore available accommodations.
@@ -33,7 +33,7 @@ Description: Host Page is the primary interface for hosts to list their properti
 Implementation Details:
 Accommodation listings are retrieved from the MongoDB database.
 The host can view their properties.
-The host can view the reservations that were booked by Users.
+The host can view the reservations that Users booked.
 
 
 4. Payment Functionality
@@ -70,7 +70,7 @@ git clone https://github.com/your-username/nammabnb.git
 npm i
 
 # Error Handling
-The API handles errors are handled and responds with appropriate status codes and error messages for invalid requests or server errors.
+The API handles errors and responds with appropriate status codes and error messages for invalid requests or server errors.
 
 # Testing
 Use Postman or any API testing tool to test the API endpoints.
@@ -80,7 +80,7 @@ Verify the responses and ensure that the API functions as expected.
 
 # Project Tech Stack
 
-This project is built using a variety of technologies to create a modern and efficient web application. Here's a breakdown of the tech stack:
+This project is built using various technologies to create a modern and efficient web application. Here's a breakdown of the tech stack:
 
 ## Libraries/Frameworks
 
