@@ -64,7 +64,7 @@ Postman: A comprehensive API development and testing tool.
 Setup
 
 # Clone the Repository:
-git clone https://github.com/your-username/nammabnb.git
+git clone [https://github.com/your-username/nammabnb.git](https://github.com/smank7/Nammabnb.git)
 
 # Install Dependencies:
 npm i
